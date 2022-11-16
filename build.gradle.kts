@@ -16,7 +16,7 @@ java {
 }
 dependencies {
     implementation(platform("org.orph2020.pst.platforms:quarkus-base"))
-    implementation(platform("org.orph2020.pst.platforms:pst-base"))
+    implementation(platform("org.orph2020.pst.platforms:pst-dm"))
     implementation("io.quarkus:quarkus-resteasy-jackson")
     // Use JUnit Jupiter for testing.
     testImplementation("org.junit.jupiter:junit-jupiter:5.8.2")
