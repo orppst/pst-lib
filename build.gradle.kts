@@ -15,7 +15,9 @@ java {
     withSourcesJar()
 }
 dependencies {
-    api("org.javastro.ivoa.dm:proposaldm:0.3-SNAPSHOT:quarkus")//IMPL special dependency that does not include the
+    implementation(platform("org.orph2020.pst.platforms:quarkus-base"))
+    implementation(platform("org.orph2020.pst.platforms:pst-base"))
+    implementation("io.quarkus:quarkus-resteasy-jackson")
     // Use JUnit Jupiter for testing.
     testImplementation("org.junit.jupiter:junit-jupiter:5.8.2")
 
