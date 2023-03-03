@@ -6,11 +6,21 @@ plugins {
 group = "org.orph2020.pst"
 version = "0.1-SNAPSHOT"
 
+
+//TODO would be nice to factor even repositories into build logic
 repositories {
-    // Use Maven Central for resolving dependencies.
     mavenCentral()
     mavenLocal()
+    /*
+    add this repository to pick up the SNAPSHOT version of the IVOA base library - in the future when this
+    will not be necessary when this library is released as a non-SNAPSHOT version.
+     */
+    maven {
+        url= uri("https://oss.sonatype.org/content/repositories/snapshots/")
+    }
+
 }
+
 java {
     withSourcesJar()
 }
