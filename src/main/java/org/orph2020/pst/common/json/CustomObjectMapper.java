@@ -3,6 +3,7 @@ package org.orph2020.pst.common.json;
  * Created on 15/11/2022 by Paul Harrison (paul.harrison@manchester.ac.uk).
  */
 // IMPL see https://stackoverflow.com/questions/55513502/how-to-create-a-jandex-index-in-quarkus-for-classes-in-a-external-module/55513723#55513723 for how to ensure CDI works for this lib
+// IMPL https://lankydan.dev/providing-your-own-jackson-objectmapper-in-quarkus
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.quarkus.jackson.ObjectMapperCustomizer;
 import io.quarkus.runtime.Startup;
