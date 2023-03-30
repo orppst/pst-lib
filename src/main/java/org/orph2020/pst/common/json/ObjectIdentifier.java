@@ -11,11 +11,20 @@ package org.orph2020.pst.common.json;
 public class ObjectIdentifier {
 
     public long dbid;
+    public String code;
     public String name;
 
     public ObjectIdentifier(long dbid, String name) {
         this.dbid = dbid;
         this.name = name;
+    }
+
+/*
+ * Allow us to use object identifier with proposals.  There may be a better way to do this.
+ */
+    public ObjectIdentifier(String code, String title){
+        this.code = code;
+        this.name = title;
     }
 
     public ObjectIdentifier() {
