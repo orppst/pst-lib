@@ -3,6 +3,8 @@ package org.orph2020.pst.apiimpl.client;
  * Created on 16/03/2023 by Paul Harrison (paul.harrison@manchester.ac.uk).
  */
 
+import io.quarkus.oidc.client.reactive.filter.OidcClientRequestReactiveFilter;
+import org.eclipse.microprofile.rest.client.annotation.RegisterProvider;
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 import org.ivoa.dm.proposal.prop.ObservingProposal;
 import org.orph2020.pst.common.json.ObjectIdentifier;
@@ -14,6 +16,7 @@ import javax.ws.rs.core.Response;
 import java.util.Set;
 
 @RegisterRestClient(configKey="proposal-api")
+@RegisterProvider(OidcClientRequestReactiveFilter.class)
 public interface ProposalRestAPI {
    @Path("observatories")
    @GET
