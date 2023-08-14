@@ -9,9 +9,9 @@ import io.quarkus.jackson.ObjectMapperCustomizer;
 import io.quarkus.runtime.Startup;
 import org.ivoa.dm.proposal.management.ProposalManagementModel;
 
-import javax.enterprise.inject.Instance;
-import javax.enterprise.inject.Produces;
-import javax.inject.Singleton;
+import jakarta.enterprise.inject.Instance;
+import jakarta.enterprise.inject.Produces;
+import jakarta.inject.Singleton;
 
 /**
  * A custom objectMapper for proposalDM.

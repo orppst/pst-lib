@@ -6,9 +6,9 @@ package org.orph2020.pst.apiimpl.entities;
 import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import org.ivoa.dm.proposal.prop.Person;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
-import static javax.persistence.GenerationType.IDENTITY;
+import static jakarta.persistence.GenerationType.IDENTITY;
 
 @Entity
 @Table( name = "SubjectMap" )
