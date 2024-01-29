@@ -3,7 +3,6 @@ package org.orph2020.pst.apiimpl.entities;
  * Created on 12/04/2023 by Paul Harrison (paul.harrison@manchester.ac.uk).
  */
 
-import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import org.ivoa.dm.proposal.prop.Person;
 
 import jakarta.persistence.*;
@@ -29,12 +28,15 @@ public class SubjectMap {
    public SubjectMap(Person person, String uid) {
       this.person = person;
       this.uid = uid;
+      this.inKeycloakRealm = true; //assumes 'this' is created from list obtained from Keycloak, and only that list
    }
    public SubjectMap()
    {
    }
 
    public String uid;
+
+   private Boolean inKeycloakRealm;
 
    public Person getPerson() {
       return person;
@@ -43,4 +45,8 @@ public class SubjectMap {
    public void setPerson(Person person) {
       this.person = person;
    }
+
+   public Boolean inKeycloak() {return inKeycloakRealm;}
+
+   public void setInKeycloakRealm(Boolean value) {this.inKeycloakRealm = value;}
 }
