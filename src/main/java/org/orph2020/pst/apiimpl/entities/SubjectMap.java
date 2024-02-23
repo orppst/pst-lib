@@ -30,13 +30,22 @@ public class SubjectMap {
       this.uid = uid;
       this.inKeycloakRealm = true; //assumes 'this' is created from list obtained from Keycloak, and only that list
    }
+
+   public SubjectMap(String uid)
+   {
+      this.person=null;
+      this.uid = uid;
+      this.inKeycloakRealm = false;
+   }
    public SubjectMap()
    {
    }
 
    public String uid;
 
-   private Boolean inKeycloakRealm;
+
+   @Transient
+   private Boolean inKeycloakRealm=true; //IMPL note not stored in database, but will default to true unless there is a call with the one parameter to constructor
 
    public Person getPerson() {
       return person;
@@ -48,5 +57,4 @@ public class SubjectMap {
 
    public Boolean inKeycloak() {return inKeycloakRealm;}
 
-   public void setInKeycloakRealm(Boolean value) {this.inKeycloakRealm = value;}
 }
