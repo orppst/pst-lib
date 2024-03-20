@@ -27,6 +27,14 @@ public class ObjectIdentifier {
         this.name = title;
     }
 
+
+    public ObjectIdentifier(long dbid, String code, String name) {
+        this.dbid = dbid;
+        this.code = code;
+        this.name = name;
+    }
+
+
     public ObjectIdentifier() {
     }
 }
