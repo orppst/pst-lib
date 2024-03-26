@@ -5,10 +5,9 @@ package org.orph2020.pst.common.json;
  but significantly less information than held in an entire ObservingProposal object
  */
 
-import org.ivoa.dm.proposal.prop.Investigator;
+import org.ivoa.dm.proposal.prop.ObservingProposal;
 import org.ivoa.dm.proposal.prop.ProposalKind;
 
-import java.util.List;
 
 public class ProposalSynopsis {
 
@@ -37,5 +36,16 @@ public class ProposalSynopsis {
         this.submitted = submitted;
     }
 
+
+    public ProposalSynopsis(ObservingProposal proposal)
+    {
+        this.code = proposal.getId();
+        this.title = proposal.getTitle();
+        this.summary = proposal.getSummary();
+        this.kind = proposal.getKind();
+        this.submitted = proposal.getSubmitted();
+    }
+
     public ProposalSynopsis() {}
+
 }
