@@ -4,7 +4,7 @@ plugins {
     `java-library`
 }
 group = "org.orph2020.pst"
-version = "0.1-SNAPSHOT"
+version = "0.2-SNAPSHOT"
 
 
 //TODO would be nice to factor even repositories into build logic
