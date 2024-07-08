@@ -6,6 +6,7 @@ package org.orph2020.pst.apiimpl.client;
 import io.quarkus.oidc.client.reactive.filter.OidcClientRequestReactiveFilter;
 import org.eclipse.microprofile.rest.client.annotation.RegisterProvider;
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
+import org.ivoa.dm.proposal.prop.Observatory;
 import org.ivoa.dm.proposal.prop.ObservingProposal;
 import org.orph2020.pst.common.json.ObjectIdentifier;
 import org.ivoa.dm.proposal.prop.Person;
@@ -18,10 +19,22 @@ import java.util.Set;
 @RegisterRestClient(configKey="proposal-api")
 @RegisterProvider(OidcClientRequestReactiveFilter.class)
 public interface ProposalRestAPI {
+
+   // ------ Observatories ----------//
    @Path("observatories")
    @GET
    Set<ObjectIdentifier> getObservatories();
 
+   @Path("observatories/{id}")
+   @GET
+   Observatory getObservatory(@PathParam("id") Long id);
+
+   @Path("observatories")
+   @POST
+   Observatory createObservatory(Observatory observatory);
+   // ---------------------------//
+
+   // ------ Proposals ----------//
    @Path("proposals")
    @GET
    Set<ObjectIdentifier> getProposals();
@@ -34,7 +47,9 @@ public interface ProposalRestAPI {
    @POST
    @Consumes(MediaType.APPLICATION_JSON)
    ObservingProposal createObservingProposal(ObservingProposal newProposal);
+   // ---------------------------//
 
+   // ------ People ----------//
    @Path("people")
    @GET
    Set<ObjectIdentifier> getPeople();
@@ -52,5 +67,6 @@ public interface ProposalRestAPI {
    @PUT
    @Consumes(MediaType.TEXT_PLAIN)
    Response updateEMail(@PathParam("id") long id, String replacementEMail);
+   // ---------------------------//
 
 }
