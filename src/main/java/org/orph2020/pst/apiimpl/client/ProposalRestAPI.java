@@ -6,10 +6,8 @@ package org.orph2020.pst.apiimpl.client;
 import io.quarkus.oidc.client.reactive.filter.OidcClientRequestReactiveFilter;
 import org.eclipse.microprofile.rest.client.annotation.RegisterProvider;
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
-import org.ivoa.dm.proposal.prop.Observatory;
-import org.ivoa.dm.proposal.prop.ObservingProposal;
+import org.ivoa.dm.proposal.prop.*;
 import org.orph2020.pst.common.json.ObjectIdentifier;
-import org.ivoa.dm.proposal.prop.Person;
 
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
@@ -32,6 +30,23 @@ public interface ProposalRestAPI {
    @Path("observatories")
    @POST
    Observatory createObservatory(Observatory observatory);
+
+   @Path("observatories/{id}/telescopes")
+   @POST
+   Telescope createAndAddTelescopeToObservatory(@PathParam("id") Long id, Telescope telescope);
+
+   @Path("observatories/{id}/instruments")
+   @POST
+   Instrument createAndAddInstrumentToObservatory(@PathParam("id") Long id, Instrument instrument);
+
+   @Path("observatories/{id}/backend")
+   @POST
+   Backend createAndAddBackend(@PathParam("id") Long id, Backend backend);
+
+   @Path("observatories/{id}/array")
+   @POST
+   TelescopeArray createAndAddArray(@PathParam("id") Long id, TelescopeArray telescopeArray);
+
    // ---------------------------//
 
    // ------ Proposals ----------//
