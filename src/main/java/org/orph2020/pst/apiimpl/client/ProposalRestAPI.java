@@ -6,7 +6,9 @@ package org.orph2020.pst.apiimpl.client;
 import io.quarkus.oidc.client.reactive.filter.OidcClientRequestReactiveFilter;
 import org.eclipse.microprofile.rest.client.annotation.RegisterProvider;
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
-import org.ivoa.dm.proposal.prop.*;
+import org.ivoa.dm.proposal.management.*;
+import org.ivoa.dm.proposal.prop.ObservingProposal;
+import org.ivoa.dm.proposal.prop.Person;
 import org.orph2020.pst.common.json.ObjectIdentifier;
 
 import jakarta.ws.rs.*;
