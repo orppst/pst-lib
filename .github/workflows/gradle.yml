@@ -40,6 +40,6 @@ jobs:
         cache-overwrite-existing: true
         
     - name: Build with Gradle Wrapper
-      working-directory: /main
+      working-directory: ./main
       run: ./gradlew build
 
