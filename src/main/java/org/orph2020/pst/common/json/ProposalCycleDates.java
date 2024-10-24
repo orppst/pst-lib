@@ -1,6 +1,6 @@
 package org.orph2020.pst.common.json;
 
-import org.ivoa.dm.proposal.prop.Observatory;
+import org.ivoa.dm.proposal.management.Observatory;
 
 import java.util.Date;
 
