@@ -5,6 +5,7 @@ package org.orph2020.pst.common.json;
  but significantly less information than held in an entire ObservingProposal object
  */
 
+import org.ivoa.dm.proposal.prop.AbstractProposal;
 import org.ivoa.dm.proposal.prop.ObservingProposal;
 import org.ivoa.dm.proposal.prop.ProposalKind;
 
@@ -23,27 +24,25 @@ public class ProposalSynopsis {
     //kind (of observation - see enum)
     public ProposalKind kind;
 
-    //submitted status
-    public Boolean submitted;
 
 
-    public ProposalSynopsis(long code, String title, String summary, ProposalKind kind, Boolean submitted)
+
+    public ProposalSynopsis(long code, String title, String summary, ProposalKind kind)
     {
         this.code = code;
         this.title = title;
         this.summary = summary;
         this.kind = kind;
-        this.submitted = submitted;
+
     }
 
 
-    public ProposalSynopsis(ObservingProposal proposal)
+    public ProposalSynopsis(AbstractProposal proposal)
     {
         this.code = proposal.getId();
         this.title = proposal.getTitle();
         this.summary = proposal.getSummary();
         this.kind = proposal.getKind();
-        this.submitted = proposal.getSubmitted();
     }
 
     public ProposalSynopsis() {}
