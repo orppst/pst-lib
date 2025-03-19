@@ -18,4 +18,29 @@ public class OpticalTelescopeDataLoad {
         this.proposalID = proposalID;
         this.observationID = observationID;
     }
+
+    /**
+     * the default constructor for the data saved within the database for a given
+     * observation.
+     */
+    public OpticalTelescopeDataLoad() {
+        this.proposalID = null;
+        this.observationID = null;
+    }
+
+    public String getProposalID() {
+        return proposalID;
+    }
+
+    public void setProposalID(String proposalID) {
+        this.proposalID = proposalID;
+    }
+
+    public String getObservationID() {
+        return observationID;
+    }
+
+    public void setObservationID(String observationID) {
+        this.observationID = observationID;
+    }
 }
