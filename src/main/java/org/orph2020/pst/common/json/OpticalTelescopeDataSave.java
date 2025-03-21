@@ -1,16 +1,32 @@
 package org.orph2020.pst.common.json;
-
+import jakarta.persistence.*;
 import java.util.HashMap;
+import java.util.Map;
 
-public class OpticalTelescopeDataSave extends OpticalTelescopeDataLoad {
+@Entity
+@Table(name = "optical_telescope_data")
+public class OpticalTelescopeDataSave {
+    @EmbeddedId
+    private OpticalTelescopeDataId primaryKey;
+
+    @ElementCollection
+    @CollectionTable(name = "telescope_choices", joinColumns = {
+        @JoinColumn(name = "proposal_id", referencedColumnName = "proposalID"),
+        @JoinColumn(name = "observation_id", referencedColumnName = "observationID")
+    })
+
     // the new states of the choices.
-    public HashMap<String, String> choices;
+    @MapKeyColumn(name = "choice_key")
+    @Column(name = "choice_value")
+    private Map<String, String> choices;
 
     // the telescope name.
-    public String telescopeName;
+    @Column(name = "telescope_name")
+    private String telescopeName;
 
     // the instrument name.
-    public String instrumentName;
+    @Column(name = "instrument_name")
+    private String instrumentName;
 
     /**
      * constructor for the telescope data for saving.
@@ -24,14 +40,30 @@ public class OpticalTelescopeDataSave extends OpticalTelescopeDataLoad {
     public OpticalTelescopeDataSave(
             String proposalID, String observationID, String telescopeName,
             String instrumentName, HashMap<String, String> choices) {
-        super(proposalID, observationID);
+        this.primaryKey = new OpticalTelescopeDataId(proposalID, observationID);
         this.telescopeName = telescopeName;
         this.instrumentName = instrumentName;
         this.choices = choices;
     }
 
-    public HashMap<String, String> getChoices() {
+    public OpticalTelescopeDataSave() {
+        // No-argument constructor for Hibernate ORM
+    }
+
+    public Map<String, String> getChoices() {
         return choices;
+    }
+
+    public void setChoices(Map<String, String> choices) {
+        this.choices = choices;
+    }
+
+    public void setTelescopeName(String telescopeName) {
+        this.telescopeName = telescopeName;
+    }
+
+    public void setInstrumentName(String instrumentName) {
+        this.instrumentName = instrumentName;
     }
 
     public String getTelescopeName() {
@@ -40,5 +72,13 @@ public class OpticalTelescopeDataSave extends OpticalTelescopeDataLoad {
 
     public String getInstrumentName() {
         return instrumentName;
+    }
+
+    public OpticalTelescopeDataId getPrimaryKey() {
+        return primaryKey;
+    }
+
+    public void setPrimaryKey(OpticalTelescopeDataId primaryKey) {
+        this.primaryKey = primaryKey;
     }
 }

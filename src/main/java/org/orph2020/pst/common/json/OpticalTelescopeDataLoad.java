@@ -3,10 +3,10 @@ package org.orph2020.pst.common.json;
 // data type for the loading of the optional telescope data.
 public class OpticalTelescopeDataLoad {
     // the proposal id.
-    public String proposalID;
+    private String proposalID;
 
     // the observation id for the telescope data.
-    public String observationID;
+    private String observationID;
 
     /**
      * the constructor for the data saved within the database for a given
