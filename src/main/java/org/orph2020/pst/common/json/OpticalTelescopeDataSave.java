@@ -11,8 +11,13 @@ public class OpticalTelescopeDataSave {
 
     @ElementCollection
     @CollectionTable(name = "telescope_choices", joinColumns = {
-        @JoinColumn(name = "proposal_id", referencedColumnName = "proposalID"),
-        @JoinColumn(name = "observation_id", referencedColumnName = "observationID")
+        @JoinColumn(name = "proposal_id", referencedColumnName = "proposalID",
+                    foreignKey = @ForeignKey(
+                            foreignKeyDefinition = "ON DELETE CASCADE")),
+        @JoinColumn(name = "observation_id",
+                    referencedColumnName = "observationID",
+                    foreignKey = @ForeignKey(
+                            foreignKeyDefinition = "ON DELETE CASCADE"))
     })
 
     // the new states of the choices.
