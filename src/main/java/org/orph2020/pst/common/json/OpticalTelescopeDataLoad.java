@@ -1,9 +1,7 @@
 package org.orph2020.pst.common.json;
 
 // data type for the loading of the optional telescope data.
-public class OpticalTelescopeDataLoad {
-    // the proposal id.
-    private String proposalID;
+public class OpticalTelescopeDataLoad extends OpticalTelescopeDataProposal {
 
     // the observation id for the telescope data.
     private String observationID;
@@ -15,7 +13,7 @@ public class OpticalTelescopeDataLoad {
      * @param observationID: the observation id.
      */
     public OpticalTelescopeDataLoad(String proposalID, String observationID) {
-        this.proposalID = proposalID;
+        super(proposalID);
         this.observationID = observationID;
     }
 
@@ -24,16 +22,8 @@ public class OpticalTelescopeDataLoad {
      * observation.
      */
     public OpticalTelescopeDataLoad() {
-        this.proposalID = null;
+        super(null);
         this.observationID = null;
-    }
-
-    public String getProposalID() {
-        return proposalID;
-    }
-
-    public void setProposalID(String proposalID) {
-        this.proposalID = proposalID;
     }
 
     public String getObservationID() {
