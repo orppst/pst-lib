@@ -33,6 +33,16 @@ public class OpticalTelescopeDataSave {
     @Column(name = "instrument_name")
     private String instrumentName;
 
+    // the time value
+    @Column(name = "telescope_time_value")
+    private String telescopeTimeValue;
+
+    @Column(name = "telescope_time_unit")
+    private String telescopeTimeUnit;
+
+    @Column(name = "user_type")
+    private String userType;
+
     /**
      * constructor for the telescope data for saving.
      *
@@ -40,14 +50,22 @@ public class OpticalTelescopeDataSave {
      * @param observationID: the observation id.
      * @param telescopeName: the telescope name.
      * @param instrumentName: the instrument name chosen for the choices.
+     * @param telescopeTimeValue: the telescope time value.
+     * @param telescopeTimeUnit: the telescope time unit.
+     * @param userType: the user type.
      * @param choices: the choices made.
      */
     public OpticalTelescopeDataSave(
             String proposalID, String observationID, String telescopeName,
-            String instrumentName, HashMap<String, String> choices) {
+            String instrumentName, String telescopeTimeValue,
+            String telescopeTimeUnit, String userType,
+            HashMap<String, String> choices) {
         this.primaryKey = new OpticalTelescopeDataId(proposalID, observationID);
         this.telescopeName = telescopeName;
         this.instrumentName = instrumentName;
+        this.telescopeTimeUnit = telescopeTimeUnit;
+        this.telescopeTimeValue = telescopeTimeValue;
+        this.userType = userType;
         this.choices = choices;
     }
 
@@ -85,5 +103,29 @@ public class OpticalTelescopeDataSave {
 
     public void setPrimaryKey(OpticalTelescopeDataId primaryKey) {
         this.primaryKey = primaryKey;
+    }
+
+    public String getTelescopeTimeValue() {
+        return telescopeTimeValue;
+    }
+
+    public void setTelescopeTimeValue(String telescopeTimeValue) {
+        this.telescopeTimeValue = telescopeTimeValue;
+    }
+
+    public String getTelescopeTimeUnit() {
+        return telescopeTimeUnit;
+    }
+
+    public void setTelescopeTimeUnit(String telescopeTimeUnit) {
+        this.telescopeTimeUnit = telescopeTimeUnit;
+    }
+
+    public String getUserType() {
+        return userType;
+    }
+
+    public void setUserType(String userType) {
+        this.userType = userType;
     }
 }
