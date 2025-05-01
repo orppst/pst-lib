@@ -48,4 +48,12 @@ public class OpticalTelescopeDataId implements Serializable {
     public int hashCode() {
         return Objects.hash(proposalID, observationID);
     }
+
+    @Override
+    public String toString() {
+        return "OpticalTelescopeDataId{" +
+                "proposalID='" + proposalID + '\'' +
+                ", observationID='" + observationID + '\'' +
+                '}';
+    }
 }
