@@ -1,5 +1,6 @@
 package org.orph2020.pst.common.json;
 import jakarta.persistence.*;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -141,5 +142,21 @@ public class OpticalTelescopeDataSave {
 
     public void setCondition(String condition) {
         this.condition = condition;
+    }
+
+    @Override
+    public String toString() {
+        return "OpticalTelescopeDataSave{" +
+                "primaryKey=" + primaryKey.toString() +
+                ", choices values=" + choices.values().toString() +
+                ", choices keys=" + choices.keySet().toString() +
+                ", choices length=" + choices.size() +
+                ", telescopeName='" + telescopeName + '\'' +
+                ", instrumentName='" + instrumentName + '\'' +
+                ", telescopeTimeValue='" + telescopeTimeValue + '\'' +
+                ", telescopeTimeUnit='" + telescopeTimeUnit + '\'' +
+                ", userType='" + userType + '\'' +
+                ", condition='" + condition + '\'' +
+                '}';
     }
 }
