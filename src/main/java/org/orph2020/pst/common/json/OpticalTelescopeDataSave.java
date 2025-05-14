@@ -1,5 +1,6 @@
 package org.orph2020.pst.common.json;
 import jakarta.persistence.*;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -43,6 +44,9 @@ public class OpticalTelescopeDataSave {
     @Column(name = "user_type")
     private String userType;
 
+    @Column(name = "condition")
+    private String condition;
+
     /**
      * constructor for the telescope data for saving.
      *
@@ -53,12 +57,14 @@ public class OpticalTelescopeDataSave {
      * @param telescopeTimeValue: the telescope time value.
      * @param telescopeTimeUnit: the telescope time unit.
      * @param userType: the user type.
+     * @param condition: the condition.
      * @param choices: the choices made.
      */
     public OpticalTelescopeDataSave(
             String proposalID, String observationID, String telescopeName,
             String instrumentName, String telescopeTimeValue,
             String telescopeTimeUnit, String userType,
+            String condition,
             HashMap<String, String> choices) {
         this.primaryKey = new OpticalTelescopeDataId(proposalID, observationID);
         this.telescopeName = telescopeName;
@@ -66,6 +72,7 @@ public class OpticalTelescopeDataSave {
         this.telescopeTimeUnit = telescopeTimeUnit;
         this.telescopeTimeValue = telescopeTimeValue;
         this.userType = userType;
+        this.condition = condition;
         this.choices = choices;
     }
 
@@ -127,5 +134,29 @@ public class OpticalTelescopeDataSave {
 
     public void setUserType(String userType) {
         this.userType = userType;
+    }
+
+    public String getCondition() {
+        return condition;
+    }
+
+    public void setCondition(String condition) {
+        this.condition = condition;
+    }
+
+    @Override
+    public String toString() {
+        return "OpticalTelescopeDataSave{" +
+                "primaryKey=" + primaryKey.toString() +
+                ", choices values=" + choices.values().toString() +
+                ", choices keys=" + choices.keySet().toString() +
+                ", choices length=" + choices.size() +
+                ", telescopeName='" + telescopeName + '\'' +
+                ", instrumentName='" + instrumentName + '\'' +
+                ", telescopeTimeValue='" + telescopeTimeValue + '\'' +
+                ", telescopeTimeUnit='" + telescopeTimeUnit + '\'' +
+                ", userType='" + userType + '\'' +
+                ", condition='" + condition + '\'' +
+                '}';
     }
 }
