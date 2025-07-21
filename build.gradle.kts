@@ -7,19 +7,7 @@ group = "org.orph2020.pst"
 version = "0.2-SNAPSHOT"
 
 
-//TODO would be nice to factor even repositories into build logic
-repositories {
-    mavenCentral()
-    mavenLocal()
-    /*
-    add this repository to pick up the SNAPSHOT version of the IVOA base library - in the future when this
-    will not be necessary when this library is released as a non-SNAPSHOT version.
-     */
-    maven {
-        url= uri("https://central.sonatype.com/repository/maven-snapshots/")
-    }
 
-}
 
 java {
     withSourcesJar()
