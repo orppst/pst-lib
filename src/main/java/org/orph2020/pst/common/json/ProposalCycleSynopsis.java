@@ -4,7 +4,7 @@ import org.ivoa.dm.proposal.management.Observatory;
 
 import java.util.Date;
 
-public class ProposalCycleSynopsys {
+public class ProposalCycleSynopsis {
     public String title;
     public String code;
     public Date submissionDeadline;
@@ -12,7 +12,7 @@ public class ProposalCycleSynopsys {
     public Date observationSessionEnd;
     public Observatory observatory;
 
-    public ProposalCycleSynopsys(String title, String code, Date submissionDeadline, Date observationSessionStart, Date observationSessionEnd, Observatory observatory)
+    public ProposalCycleSynopsis(String title, String code, Date submissionDeadline, Date observationSessionStart, Date observationSessionEnd, Observatory observatory)
     {
         this.title = title;
         this.code = code;
@@ -22,5 +22,5 @@ public class ProposalCycleSynopsys {
         this.observatory = observatory;
     }
 
-    public ProposalCycleSynopsys() {}
+    public ProposalCycleSynopsis() {}
 }
