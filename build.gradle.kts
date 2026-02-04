@@ -4,7 +4,7 @@ plugins {
     `java-library`
 }
 group = "org.orph2020.pst"
-version = "0.2-SNAPSHOT"
+version = "1.0"
 
 
 
