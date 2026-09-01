@@ -13,10 +13,11 @@ java {
     withSourcesJar()
 }
 dependencies {
-    implementation(platform("org.orph2020.pst.platforms:quarkus-base"))
-    implementation(platform("org.orph2020.pst.platforms:pst-dm"))
-    implementation("io.quarkus:quarkus-rest-client-reactive-jackson")
-    implementation("io.quarkus:quarkus-oidc-client-reactive-filter")
+    implementation(enforcedPlatform("io.quarkus.platform:quarkus-bom:3.33.1"))
+    api("org.javastro.ivoa.dm:proposaldm:0.7.1-SNAPSHOT")
+    api("org.javastro.ivoa.dm:proposaldm:0.7.1-SNAPSHOT:test") // FIXME will want to remove for deployment
+    implementation("io.quarkus:quarkus-jackson")
+    implementation("io.quarkus:quarkus-rest-client-oidc-filter")
     // Use JUnit Jupiter for testing.
     testImplementation("org.junit.jupiter:junit-jupiter:5.8.2")
 
