@@ -2,17 +2,18 @@ package org.orph2020.pst.common.json;
 
 import org.ivoa.dm.proposal.management.Observatory;
 
-import java.util.Date;
+import java.time.ZonedDateTime;
+
 
 public class ProposalCycleSynopsis {
     public String title;
     public String code;
-    public Date submissionDeadline;
-    public Date observationSessionStart;
-    public Date observationSessionEnd;
+    public ZonedDateTime submissionDeadline;
+    public ZonedDateTime observationSessionStart;
+    public ZonedDateTime observationSessionEnd;
     public Observatory observatory;
 
-    public ProposalCycleSynopsis(String title, String code, Date submissionDeadline, Date observationSessionStart, Date observationSessionEnd, Observatory observatory)
+    public ProposalCycleSynopsis(String title, String code, ZonedDateTime submissionDeadline, ZonedDateTime observationSessionStart, ZonedDateTime observationSessionEnd, Observatory observatory)
     {
         this.title = title;
         this.code = code;
