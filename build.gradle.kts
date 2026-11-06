@@ -14,8 +14,8 @@ java {
 }
 dependencies {
     implementation(enforcedPlatform("io.quarkus.platform:quarkus-bom:3.33.4.1"))
-    api("org.javastro.ivoa.dm:proposaldm:0.7.3")
-    api("org.javastro.ivoa.dm:proposaldm:0.7.3:test") // FIXME will want to remove for deployment
+    api("org.javastro.ivoa.dm:proposaldm:0.7.4")
+    api("org.javastro.ivoa.dm:proposaldm:0.7.4:test") // FIXME will want to remove for deployment
     implementation("io.quarkus:quarkus-jackson")
     implementation("io.quarkus:quarkus-rest-client-oidc-filter")
     // Use JUnit Jupiter for testing.
