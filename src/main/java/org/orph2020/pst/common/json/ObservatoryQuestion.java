@@ -11,6 +11,7 @@ public class ObservatoryQuestion {
 
     public ObservatoryQuestion() {}
 
+    // 'id' must be unique for each question in a proposal cycle.
     public ObservatoryQuestion(int id, String label, String description, String query, String response,
                                int minChar, int maxChar) {
         this.id = id;
